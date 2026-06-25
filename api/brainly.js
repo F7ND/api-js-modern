@@ -24,9 +24,19 @@ export default async function handler(req, res) {
     });
   }
 
-  const url = `https://brainly.com/bff/social-qa/answer-experience-web/api/v1/search?query=${encodeURIComponent(
-    query
-  )}&limit=${limit}&market=id`;
+const url = `https://brainly.co.id/bff/social-qa/answer-experience-web/api/v1/search?query=${encodeURIComponent(query)}&limit=${limit}&market=id`;
+
+const response = await fetch(url, {
+  method: "GET",
+  headers: {
+    accept: "*/*",
+    "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+    origin: "https://brainly.co.id",
+    referer: "https://brainly.co.id/",
+    "user-agent":
+      "Mozilla/5.0 (Linux; Android 13; Mobile) AppleWebKit/537.36 ...",
+  },
+});
 
   try {
     const response = await fetch(url, {
